@@ -1,0 +1,11 @@
+project:
+    name: aws-storing
+deployments:
+  - name: dev
+    executor: celery
+    image:
+      name: quay.io/astronomer/astro-runtime:12.6.0
+    env: dev
+    volumes:
+      - ./include:/usr/local/airflow/include
+      - ./artifacts:/usr/local/airflow/artifacts

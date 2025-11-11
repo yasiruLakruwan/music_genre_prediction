@@ -1,0 +1,7 @@
+README.md
+setup.py
+Music_genre_predicton.egg-info/PKG-INFO
+Music_genre_predicton.egg-info/SOURCES.txt
+Music_genre_predicton.egg-info/dependency_links.txt
+Music_genre_predicton.egg-info/requires.txt
+Music_genre_predicton.egg-info/top_level.txt

@@ -1,0 +1,11 @@
+numpy
+pandas
+librosa
+matplotlib
+boto3
+tensorflow
+mlflow
+fastapi 
+uvicorn 
+pillow 
+python-multipart
