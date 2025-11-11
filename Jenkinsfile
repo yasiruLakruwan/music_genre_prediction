@@ -16,17 +16,27 @@ pipeline{
                 script{
                     echo 'Setting up virtual environment and dependancies....'
                     sh'''
-                    # Move to backend folder
-                    cd AWS_storing
-                    # create a python environment
+                    cd AWS_storing       
                     python -m venv venv
-                    # Activate it
                     . venv/bin/activate
-                    # Upgrade pip
                     pip install --upgrade pip
-                    # Install project dependancies
-                    pip install -r requirements.txt
-                    
+                    pip install -e .
+                    '''
+                }
+            }
+        }
+
+        stage('Install and build front end'){
+            steps{
+                script{
+                    echo 'Install and build front end.......'
+                    sh'''
+                    cd frontend
+                    node -v
+                    npm -v
+
+                    npm install
+                    npm run build
                     '''
                 }
             }
