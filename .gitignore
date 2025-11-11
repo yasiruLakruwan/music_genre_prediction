@@ -7,7 +7,7 @@ venv/
 env/
 .env
 logs/
-artifacts/
+#artifacts/
 notebook/
 __astro__/
 AWS_storing/venv/
