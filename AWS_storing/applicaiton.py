@@ -7,6 +7,7 @@ import os
 from config.data_paths import MODEL_SAVE_PATH
 import librosa
 import matplotlib.pyplot as plt
+import sys
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -22,9 +23,15 @@ app.add_middleware(
 
 # load the model
 if os.path.exists(MODEL_SAVE_PATH):
-    model = load_model(MODEL_SAVE_PATH)
+    try:
+        model = load_model(MODEL_SAVE_PATH)
+        print(f"Model loaded successfully from {MODEL_SAVE_PATH}")
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        sys.exit(1)
 else:
-    model = None
+    print(f"Model file not found at {MODEL_SAVE_PATH}")
+    sys.exit(1)
 
 CLASS_NAMES = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
