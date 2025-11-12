@@ -7,6 +7,8 @@ const UploadAudio = () => {
     const [loading,setLoading] = useState(null);
     const [error,setError] = useState(null);
 
+    const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000"; // ✅ use env var if available
+
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
         setResult(null);
@@ -24,7 +26,7 @@ const UploadAudio = () => {
         try{
             setLoading(true);
             const response = await axios.post(
-                "http://127.0.0.1:8000/predict", // backend URL
+                `${API_URL}/predict`, // ✅ dynamically use backend URL
                 formData,
                 { headers: { "Content-Type": "multipart/form-data" } }
             );
