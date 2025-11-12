@@ -47,7 +47,7 @@ pipeline{
                 script{
                     echo 'Run docker compose locally(test only).......'
                     sh'''
-                    docker-compose up -d
+                    docker compose up -d
                     docker ps
                     sleep 10
                     docker logs music-backend
