@@ -41,23 +41,5 @@ pipeline{
                 }
             }
         }
-
-        stage('Run docker compose (test only)'){
-            steps{
-                script{
-                    echo 'Run docker compose locally(test only).......'
-                    sh'''
-                    docker compose up -d
-                    docker ps
-                    sleep 10
-                    docker logs music-backend
-                    docker logs music-frontend
-                    docker compose down
-                    '''
-                }
-            }
-        }
     }
 }
-
-
