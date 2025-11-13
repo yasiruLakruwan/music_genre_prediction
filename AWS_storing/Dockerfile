@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all backend code
 COPY . .
-
+RUN ls -R /app/artifacts
 # Expose backend port
 EXPOSE 8000
 

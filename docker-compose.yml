@@ -6,13 +6,13 @@ services:
       container_name: music-backend
       ports:
         - "8000:8000"
+      volumes:
+        - ./AWS_storing/artifacts/model:/app/artifacts/model
       restart: always
 
     frontend:
       build:
         context: ./frontend
-        args: 
-          - REACT_APP_API_URL=http://backend:8000
       container_name: music-frontend
       ports:
         - "3000:80"

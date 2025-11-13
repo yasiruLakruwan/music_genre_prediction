@@ -19,7 +19,10 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
-#Expose the port
+# Add proxy setup
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the port
 EXPOSE 80
 
 # Start NGINX
